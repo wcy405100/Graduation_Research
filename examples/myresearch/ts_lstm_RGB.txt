@@ -1,0 +1,4 @@
+falcon/falcon2_cut_part1 0
+falcon/falcon1_cut_part5_10 0
+falcon/falcon2_cut_part4 0
+eagle/eagle1_cut_part1 1
