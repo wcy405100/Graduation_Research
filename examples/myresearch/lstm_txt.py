@@ -4,11 +4,11 @@ import sys
 import random
 
 cat_dir = 'video_data/'
-label = 0
 tlist =[]
 for cat in os.listdir(cat_dir):
 	if cat == 'eagle':
 		label = 1
+	else:   label = 0
 	for foldn in os.listdir(cat_dir+cat):
 		tlist.append(cat+'/'+os.path.splitext(foldn)[0]+' '+str(label))
 
