@@ -136,7 +136,7 @@ class videoRead(caffe.Layer):
     self.height = 227
     self.width = 227
     self.path_to_images = RGB_frames 
-    self.video_list = 'ucf101_split1_testVideos.txt' 
+    self.video_list = 'ts_lstm.txt' 
 
   def setup(self, bottom, top):
     random.seed(10)
@@ -149,7 +149,7 @@ class videoRead(caffe.Layer):
     current_line = 0
     self.video_order = []
     for ix, line in enumerate(f_lines):
-      video = line.split(' ')[0].split('/')[1]
+      video = line.split(' ')[0]
       l = int(line.split(' ')[1])
       frames = glob.glob('%s%s/*.jpg' %(self.path_to_images, video))
       num_frames = len(frames)
@@ -264,7 +264,7 @@ class videoReadTrain_flow(videoRead):
     self.height = 227
     self.width = 227
     self.path_to_images = flow_frames 
-    self.video_list = 'ucf101_split1_trainVideos.txt' 
+    self.video_list = 'tr_lstm.txt' 
 
 class videoReadTest_flow(videoRead):
 
@@ -279,7 +279,7 @@ class videoReadTest_flow(videoRead):
     self.height = 227
     self.width = 227
     self.path_to_images = flow_frames 
-    self.video_list = 'ucf101_split1_testVideos.txt' 
+    self.video_list = 'ts_lstm.txt' 
 
 class videoReadTrain_RGB(videoRead):
 
@@ -294,7 +294,7 @@ class videoReadTrain_RGB(videoRead):
     self.height = 227
     self.width = 227
     self.path_to_images = RGB_frames 
-    self.video_list = 'ucf101_split1_trainVideos.txt' 
+    self.video_list = 'tr_lstm.txt' 
 
 class videoReadTest_RGB(videoRead):
 
@@ -309,4 +309,4 @@ class videoReadTest_RGB(videoRead):
     self.height = 227
     self.width = 227
     self.path_to_images = RGB_frames 
-    self.video_list = 'ucf101_split1_testVideos.txt' 
+    self.video_list = 'ts_lstm.txt' 
