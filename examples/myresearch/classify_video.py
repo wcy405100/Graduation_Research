@@ -17,7 +17,7 @@ flow_video_path = 'flow_images/'
 if len(sys.argv) > 1:
   video = sys.argv[1]
 else:
-  video = 'v_Archery_g01_c01'
+  video = 'eagle/eagle1_cut_part1'
 
 #Initialize transformers
 
