@@ -142,7 +142,7 @@ def compute_fusion(RGB_pred, flow_pred, p):
 
 #Load activity label hash
 action_hash = pickle.load(open('action_hash_rev.p','rb'))
-print "The true label is %s, video name is: %s\n" %lab %vname
+print "The true label is %s, video name is: %s.\n" %lab %vname
 print "RGB single frame model classified video as: %s.\n" %(action_hash[class_RGB_singleFrame])
 print "Flow single frame model classified video as: %s.\n" %(action_hash[class_flow_singleFrame])
 print "RGB LRCN model classified video as: %s.\n" %(action_hash[class_RGB_LRCN])
