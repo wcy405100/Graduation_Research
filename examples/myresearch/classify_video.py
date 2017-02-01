@@ -18,7 +18,9 @@ if len(sys.argv) > 1:
   video = sys.argv[1]
 else:
   video = 'eagle/eagle1_cut_part1'
-
+  
+lab,vname = video.split('/',2)[0],video.split('/',2)[1]
+ 
 #Initialize transformers
 
 def initialize_transformer(image_mean, is_flow):
@@ -33,7 +35,6 @@ def initialize_transformer(image_mean, is_flow):
   transformer.set_transpose('data', (2, 0, 1))
   transformer.set_is_flow('data', is_flow)
   return transformer
-
 
 ucf_mean_RGB = np.zeros((3,1,1))
 ucf_mean_flow = np.zeros((3,1,1))
@@ -141,7 +142,7 @@ def compute_fusion(RGB_pred, flow_pred, p):
 
 #Load activity label hash
 action_hash = pickle.load(open('action_hash_rev.p','rb'))
-
+print "The true label is %s, video name is: %s\n" %lab %vname
 print "RGB single frame model classified video as: %s.\n" %(action_hash[class_RGB_singleFrame])
 print "Flow single frame model classified video as: %s.\n" %(action_hash[class_flow_singleFrame])
 print "RGB LRCN model classified video as: %s.\n" %(action_hash[class_RGB_LRCN])
